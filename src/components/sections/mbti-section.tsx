@@ -51,8 +51,6 @@ export function MBTISection() {
   });
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ResultType | null>(null);
-  const [footerRef, footerInView] = useInView({ threshold: 0.1 });
-  
   // Contact Modal State
   const [contactModal, setContactModal] = useState<{ open: boolean; type: 'phone' | 'email'; value: string } | null>(null);
   const [copied, setCopied] = useState(false);
@@ -318,28 +316,6 @@ export function MBTISection() {
           </AnimatePresence>
         </div>
       </div>
-
-      {/* Footer from CtaSection */}
-      <motion.footer
-        ref={footerRef}
-        initial={{ opacity: 0 }}
-        animate={footerInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8 }}
-        className="relative z-10 py-12 border-t border-white/10 bg-[#111111]"
-      >
-        <div className="container mx-auto px-4 md:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/50 text-xs md:text-sm text-center md:text-left">
-              © 2025 더 스미스 테슬라 컨설팅 서비스. All rights reserved.
-            </p>
-            <div className="flex gap-4 md:gap-6 text-white/50 text-xs md:text-sm">
-              <a href="#" className="hover:text-white transition-colors">이용약관</a>
-              <a href="#" className="hover:text-white transition-colors">개인정보처리방침</a>
-              <a href="#" className="hover:text-white transition-colors">고객센터</a>
-            </div>
-          </div>
-        </div>
-      </motion.footer>
 
       {/* Contact Modal */}
       <Dialog open={!!contactModal?.open} onOpenChange={(open) => !open && setContactModal(null)}>
