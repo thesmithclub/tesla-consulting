@@ -72,19 +72,61 @@ export function SolutionsSection() {
         className="md:sticky md:top-0 md:h-screen overflow-hidden flex flex-col justify-center py-16 md:py-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://smith.speedgabia.com/tetris/info/ribbon_background.gif)' }}
       >
-        <div className="container mx-auto px-8 mb-12 md:mb-20 bg-[rgba(255,255,255,0)]">
+        <div className="container mx-auto px-8 mb-10 md:mb-16 bg-[rgba(255,255,255,0)]">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-[#FFFFFF] text-4xl md:text-[4.5rem]"
+            className="text-[#FFFFFF] text-4xl md:text-[4.5rem] mb-6 md:mb-8"
             style={{ fontWeight: 900 }}
           >
             테슬라 아이템
           </motion.h2>
+
+          {/* 개별 아이템 태그 — 스태거 슬라이드업 + shimmer */}
+          <div className="flex flex-wrap gap-2 md:gap-3">
+            {[
+              '프리미엄 틴팅',
+              'PPF (페인트 보호 필름)',
+              '블랙박스',
+              '스미스패스 (하이패스)',
+              '요크 핸들',
+              '오토 프렁크 & 오토 도어',
+              '광각 사이드미러',
+              '안드로이드 오토 & 카플레이',
+            ].map((item, i) => (
+              <motion.span
+                key={item}
+                initial={{ opacity: 0, y: 18, scale: 0.92 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: 0.3 + i * 0.07, ease: 'easeOut' }}
+                whileHover={{ scale: 1.08, backgroundColor: 'rgba(255,255,255,0.22)', borderColor: 'rgba(255,255,255,0.6)' }}
+                className="relative px-4 py-2 rounded-full text-sm md:text-base backdrop-blur-md cursor-default overflow-hidden"
+                style={{
+                  background: 'rgba(255,255,255,0.10)',
+                  color: '#fff',
+                  border: '1px solid rgba(255,255,255,0.22)',
+                  fontWeight: 500,
+                }}
+              >
+                {/* shimmer sweep */}
+                <motion.span
+                  className="absolute inset-0 rounded-full pointer-events-none"
+                  style={{
+                    background: 'linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%)',
+                    backgroundSize: '200% 100%',
+                  }}
+                  animate={{ backgroundPosition: ['-100% 0%', '200% 0%'] }}
+                  transition={{ duration: 2.2, delay: 0.6 + i * 0.15, repeat: Infinity, repeatDelay: 3, ease: 'easeInOut' }}
+                />
+                {item}
+              </motion.span>
+            ))}
+          </div>
         </div>
-          
+
         {/* 텍스트 라인(container)에 맞춰 시작하되, 우측으로 쭉 뻗어나가도록 설정 */}
         <div className="container mx-auto px-8">
           <motion.div
@@ -97,7 +139,7 @@ export function SolutionsSection() {
                 className="flex-shrink-0 w-full md:w-[698px] md:pr-12"
               >
                 <div className="w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
-                <div 
+                <div
                   className="h-[250px] md:h-[400px] overflow-hidden cursor-pointer relative group"
                   onClick={() => setSelectedImage(solutionImages[index])}
                 >
@@ -122,41 +164,6 @@ export function SolutionsSection() {
                 </div>
               </div>
               </div>
-            ))}
-          </motion.div>
-        </div>
-
-        {/* 개별 아이템 태그 버튼 */}
-        <div className="container mx-auto px-8 mt-10 md:mt-14">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex flex-wrap gap-2 md:gap-3"
-          >
-            {[
-              '프리미엄 틴팅',
-              'PPF (페인트 보호 필름)',
-              '블랙박스',
-              '스미스패스 (하이패스)',
-              '요크 핸들',
-              '오토 프렁크 & 오토 도어',
-              '광각 사이드미러',
-              '안드로이드 오토 & 카플레이',
-            ].map((item) => (
-              <span
-                key={item}
-                className="px-4 py-2 rounded-full text-sm md:text-base backdrop-blur-md transition-colors duration-200 cursor-default"
-                style={{
-                  background: 'rgba(255,255,255,0.10)',
-                  color: '#fff',
-                  border: '1px solid rgba(255,255,255,0.22)',
-                  fontWeight: 500,
-                }}
-              >
-                {item}
-              </span>
             ))}
           </motion.div>
         </div>
