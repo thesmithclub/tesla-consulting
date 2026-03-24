@@ -2,6 +2,7 @@ import './components/suppress-warnings';
 import { useState, useEffect, useRef } from 'react';
 import { EarlybirdSection } from './components/sections/earlybird-section';
 import { SolutionsSection } from './components/sections/solutions-section';
+import { PackagesSection } from './components/sections/packages-section';
 import { BeforeAfterSection } from './components/sections/before-after-section';
 import { HighlightsSection } from './components/sections/highlights-section';
 import { BenefitsSection } from './components/sections/benefits-section';
@@ -17,6 +18,7 @@ const sections = [
   { id: 'consulting', component: ConsultingSection, label: '고민상담' },
   { id: 'reviews', component: ReviewsSection, label: '리뷰' },
   { id: 'earlybird', component: EarlybirdSection, label: '얼리버드' },
+  { id: 'packages', component: PackagesSection, label: '패키지' },
   { id: 'solutions', component: SolutionsSection, label: '솔루션' },
   { id: 'before-after', component: BeforeAfterSection, label: '전후비교' },
   { id: 'highlights', component: HighlightsSection, label: '강점' },
