@@ -8,7 +8,7 @@ const packages = [
     tierBg: 'rgba(74,158,255,0.1)',
     tierBorder: 'rgba(74,158,255,0.25)',
     name: '에센셜 패키지',
-    desc: '처음 테슬라를 시작하는 분에게 꼭 필요한 것만 담았습니다',
+    desc: <>처음 테슬라를 시작하는 분에게<br />꼭 필요한 것만 담았습니다</>,
     price: '79',
     priceNote: 'Model Y 기준 / VAT 포함',
     items: [
@@ -30,7 +30,7 @@ const packages = [
     tierBg: 'rgba(168,85,247,0.1)',
     tierBorder: 'rgba(168,85,247,0.25)',
     name: '스탠다드 패키지',
-    desc: '보호와 편의를 동시에. 가장 인기 있는 구성',
+    desc: <>보호와 편의를 동시에.<br />가장 인기 있는 구성</>,
     price: '129',
     priceNote: 'Model Y 기준 / VAT 포함',
     items: [
@@ -52,7 +52,7 @@ const packages = [
     tierBg: 'rgba(245,158,11,0.1)',
     tierBorder: 'rgba(245,158,11,0.35)',
     name: '프리미엄 패키지',
-    desc: '테슬라를 200% 즐기는 완벽한 세팅',
+    desc: <>테슬라를 200% 즐기는<br />완벽한 세팅</>,
     price: '199',
     priceNote: 'Model Y 기준 / VAT 포함',
     items: [
@@ -74,7 +74,7 @@ const packages = [
     tierBg: 'rgba(227,25,55,0.1)',
     tierBorder: 'rgba(227,25,55,0.25)',
     name: 'VIP 컨설팅',
-    desc: '나만의 테슬라를 완성하는 풀커스텀 솔루션',
+    desc: <>나만의 테슬라를 완성하는<br />풀커스텀 솔루션</>,
     price: null,
     priceNote: '1:1 상담 후 견적 안내',
     items: [
