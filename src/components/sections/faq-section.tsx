@@ -133,6 +133,28 @@ export function FaqSection() {
             </motion.div>
           ))}
         </div>
+
+        {/* 하단 애니메이션 구분선 */}
+        <motion.div
+          initial={{ opacity: 0, scaleX: 0 }}
+          animate={inView ? { opacity: 1, scaleX: 1 } : {}}
+          transition={{ duration: 1.2, delay: 0.8, ease: 'easeInOut' }}
+          className="mt-20 md:mt-28 relative h-px max-w-3xl mx-auto"
+          style={{ background: 'linear-gradient(90deg, transparent, #e31937, transparent)', transformOrigin: 'center' }}
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="mt-8 flex justify-center"
+        >
+          <motion.div
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut' }}
+            className="w-2 h-2 rounded-full"
+            style={{ background: '#e31937', boxShadow: '0 0 12px 4px rgba(227,25,55,0.4)' }}
+          />
+        </motion.div>
       </div>
     </div>
   );

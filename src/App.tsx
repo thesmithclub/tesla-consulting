@@ -12,6 +12,7 @@ import { ReviewsSection } from './components/sections/reviews-section';
 import { ConsultingSection } from './components/sections/consulting-section';
 import { CtaSection } from './components/sections/cta-section';
 import { FaqSection } from './components/sections/faq-section';
+import { Footer } from './components/footer';
 import { Navigation } from './components/navigation';
 import { ScrollIndicator } from './components/scroll-indicator';
 
@@ -107,6 +108,7 @@ export default function App() {
           </section>
         );
       })}
+      <Footer />
     </div>
   );
 }
