@@ -11,6 +11,7 @@ import { MBTISection } from './components/sections/mbti-section';
 import { ReviewsSection } from './components/sections/reviews-section';
 import { ConsultingSection } from './components/sections/consulting-section';
 import { CtaSection } from './components/sections/cta-section';
+import { FaqSection } from './components/sections/faq-section';
 import { Navigation } from './components/navigation';
 import { ScrollIndicator } from './components/scroll-indicator';
 
@@ -26,6 +27,7 @@ const sections = [
   { id: 'process', component: ProcessSection, label: '프로세스' },
   { id: 'mbti', component: MBTISection, label: 'AI 추천' },
   { id: 'cta', component: CtaSection, label: 'CTA' },
+  { id: 'faq', component: FaqSection, label: 'FAQ' },
 ];
 
 export default function App() {

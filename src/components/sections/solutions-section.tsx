@@ -125,8 +125,43 @@ export function SolutionsSection() {
             ))}
           </motion.div>
         </div>
+
+        {/* 개별 아이템 태그 버튼 */}
+        <div className="container mx-auto px-8 mt-10 md:mt-14">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap gap-2 md:gap-3"
+          >
+            {[
+              '프리미엄 틴팅',
+              'PPF (페인트 보호 필름)',
+              '블랙박스',
+              '스미스패스 (하이패스)',
+              '요크 핸들',
+              '오토 프렁크 & 오토 도어',
+              '광각 사이드미러',
+              '안드로이드 오토 & 카플레이',
+            ].map((item) => (
+              <span
+                key={item}
+                className="px-4 py-2 rounded-full text-sm md:text-base backdrop-blur-md transition-colors duration-200 cursor-default"
+                style={{
+                  background: 'rgba(255,255,255,0.10)',
+                  color: '#fff',
+                  border: '1px solid rgba(255,255,255,0.22)',
+                  fontWeight: 500,
+                }}
+              >
+                {item}
+              </span>
+            ))}
+          </motion.div>
+        </div>
       </div>
-      
+
       <div className="hidden md:block md:absolute md:bottom-24 left-0 right-0 text-center pb-16 md:pb-0 pt-8 md:pt-0">
         <motion.button
           initial={{ opacity: 0, y: 20 }}
