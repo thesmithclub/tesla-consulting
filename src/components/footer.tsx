@@ -11,21 +11,6 @@ export function Footer() {
       style={{ backgroundColor: '#060606', borderTop: '1px solid #1a1a1a' }}
     >
       <div className="container mx-auto px-6 md:px-8 py-14 md:py-16">
-        {/* 로고 */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-8"
-        >
-          <span
-            className="text-xl tracking-widest"
-            style={{ color: '#f0f0f0', fontWeight: 800, letterSpacing: '0.2em' }}
-          >
-            THE SMITH
-          </span>
-        </motion.div>
-
         {/* 구분선 */}
         <div className="mb-8" style={{ height: 1, background: '#1a1a1a' }} />
 
