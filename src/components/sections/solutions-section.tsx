@@ -42,9 +42,9 @@ export function SolutionsSection() {
   }, []);
 
   const solutionImages = [
-    "https://smith.speedgabia.com/md_show/item_list/modelxtinting.jpg",
+    "https://smith.speedgabia.com/tetris/con_item/roofppf.gif",
     "https://smith.speedgabia.com/tetris/con_item/handel.png",
-    "https://smith.speedgabia.com/tetris/con_item/auto_front.gif",
+    "https://smith.speedgabia.com/tetris/con_item/autofrunk.gif",
     "https://smith.speedgabia.com/tetris/con_item/wide_side.png"
   ];
   
