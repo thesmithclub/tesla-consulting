@@ -4,8 +4,13 @@ import { X } from 'lucide-react';
 
 const solutions = [
   {
-    title: "프리미엄 틴팅 & PPF & 블랙박스",
-    description: "완벽한 보호와 프라이버시. 차량 가치를 지키는 필수 솔루션",
+    title: "프리미엄 틴팅",
+    description: "전비를 향상시키는 기적같은 프리미엄 틴팅필름",
+    videoId: "jNQXAC9IVRw"
+  },
+  {
+    title: "PPF & 블랙박스",
+    description: "열차단 & 발수코팅까지 한 번에 가능한 루프 PPF",
     videoId: "jNQXAC9IVRw"
   },
   {
@@ -42,6 +47,7 @@ export function SolutionsSection() {
   }, []);
 
   const solutionImages = [
+    "https://images.unsplash.com/photo-1699897483215-a66a9ca292b3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://smith.speedgabia.com/tetris/con_item/roofppf.gif",
     "https://smith.speedgabia.com/tetris/con_item/handel.png",
     "https://smith.speedgabia.com/tetris/con_item/autofrunk.gif",
@@ -58,13 +64,13 @@ export function SolutionsSection() {
   // 25~50%: 1->2 이동 (두 번째 스크롤)
   // 50~75%: 2번 유지
   // 75~100%: 2->3 이동
-  const x = useTransform(scrollYProgress, 
-    [0, 0.2, 0.4, 0.6, 0.8, 1], 
-    ["0px", "0px", "-698px", "-698px", "-1396px", "-1396px"]
+  const x = useTransform(scrollYProgress,
+    [0, 0.167, 0.333, 0.5, 0.667, 0.833, 1],
+    ["0px", "0px", "-698px", "-698px", "-1396px", "-1396px", "-2094px"]
   );
 
   return (
-    <div ref={containerRef} className="relative" style={{ backgroundColor: '#DEDAD8', height: isMobile ? 'auto' : '400vh' }}>
+    <div ref={containerRef} className="relative" style={{ backgroundColor: '#DEDAD8', height: isMobile ? 'auto' : '500vh' }}>
       {/* Internal Snap Point for Smooth Scrubbing */}
       <div className="absolute top-1/2 w-full h-1 snap-start snap-always opacity-0 pointer-events-none md:block hidden" />
       
