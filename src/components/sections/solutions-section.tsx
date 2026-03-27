@@ -9,7 +9,7 @@ const solutions = [
     videoId: "jNQXAC9IVRw"
   },
   {
-    title: "PPF & 블랙박스",
+    title: "PPF & 열차단 루프 PPF",
     description: "열차단 & 발수코팅까지 한 번에 가능한 루프 PPF",
     videoId: "jNQXAC9IVRw"
   },
