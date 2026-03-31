@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, useScroll, useTransform, AnimatePresence } from 'motion/react';
 import { useRef, useState, useEffect } from 'react';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const solutions = [
   {
@@ -32,7 +32,8 @@ const solutions = [
 
 export function SolutionsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedSlides, setSelectedSlides] = useState<string[] | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   // Detect mobile device
@@ -47,12 +48,26 @@ export function SolutionsSection() {
   }, []);
 
   const solutionImages = [
-    "https://images.unsplash.com/photo-1699897483215-a66a9ca292b3?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "https://smith.speedgabia.com/tetris/info/Premitting_01.jpg",
     "https://smith.speedgabia.com/tetris/con_item/roofppf.gif",
     "https://smith.speedgabia.com/tetris/con_item/handel.png",
     "https://smith.speedgabia.com/tetris/con_item/autofrunk.gif",
     "https://smith.speedgabia.com/tetris/con_item/wide_side.png"
   ];
+
+  // 슬라이드가 여러 장인 아이템 (index 기준)
+  const solutionSlides: Record<number, string[]> = {
+    0: [
+      "https://smith.speedgabia.com/tetris/info/Premitting_01.jpg",
+      "https://smith.speedgabia.com/tetris/info/Premitting_02.jpg",
+    ]
+  };
+
+  const openSlides = (index: number) => {
+    const slides = solutionSlides[index] ?? [solutionImages[index]];
+    setSelectedSlides(slides);
+    setCurrentSlide(0);
+  };
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -147,7 +162,7 @@ export function SolutionsSection() {
                 <div className="w-full bg-white rounded-3xl overflow-hidden shadow-2xl">
                 <div
                   className="h-[250px] md:h-[400px] overflow-hidden cursor-pointer relative group"
-                  onClick={() => setSelectedImage(solutionImages[index])}
+                  onClick={() => openSlides(index)}
                 >
                   <img
                     src={solutionImages[index]}
@@ -189,38 +204,82 @@ export function SolutionsSection() {
         </motion.button>
       </div>
 
-      {/* Expanded Image Modal */}
-      {selectedImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-8"
-          onClick={() => setSelectedImage(null)}
-        >
+      {/* Expanded Image Modal (슬라이드 지원) */}
+      <AnimatePresence>
+        {selectedSlides && (
           <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.8, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="relative w-full max-w-6xl h-[80vh]"
-            onClick={(e) => e.stopPropagation()}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-8"
+            onClick={() => setSelectedSlides(null)}
           >
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition-colors z-10"
-              aria-label="닫기"
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.8, opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full max-w-6xl h-[80vh]"
+              onClick={(e) => e.stopPropagation()}
             >
-              <X className="w-6 h-6 text-white" />
-            </button>
-            <img
-              src={selectedImage}
-              alt="확대된 이미지"
-              className="w-full h-full object-contain rounded-2xl"
-            />
+              {/* 닫기 버튼 */}
+              <button
+                onClick={() => setSelectedSlides(null)}
+                className="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/30 transition-colors z-10"
+                aria-label="닫기"
+              >
+                <X className="w-6 h-6 text-white" />
+              </button>
+
+              {/* 이미지 슬라이드 */}
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={currentSlide}
+                  src={selectedSlides[currentSlide]}
+                  alt={`슬라이드 ${currentSlide + 1}`}
+                  className="w-full h-full object-contain rounded-2xl"
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{ duration: 0.3 }}
+                />
+              </AnimatePresence>
+
+              {/* 이전/다음 버튼 (슬라이드가 2장 이상일 때만 표시) */}
+              {selectedSlides.length > 1 && (
+                <>
+                  <button
+                    onClick={() => setCurrentSlide((prev) => (prev - 1 + selectedSlides.length) % selectedSlides.length)}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors"
+                    aria-label="이전"
+                  >
+                    <ChevronLeft className="w-6 h-6 text-white" />
+                  </button>
+                  <button
+                    onClick={() => setCurrentSlide((prev) => (prev + 1) % selectedSlides.length)}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white/40 transition-colors"
+                    aria-label="다음"
+                  >
+                    <ChevronRight className="w-6 h-6 text-white" />
+                  </button>
+
+                  {/* 인디케이터 점 */}
+                  <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex gap-2">
+                    {selectedSlides.map((_, i) => (
+                      <button
+                        key={i}
+                        onClick={() => setCurrentSlide(i)}
+                        className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentSlide ? 'bg-white scale-125' : 'bg-white/40'}`}
+                        aria-label={`슬라이드 ${i + 1}`}
+                      />
+                    ))}
+                  </div>
+                </>
+              )}
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
     </div>
   );
 }
