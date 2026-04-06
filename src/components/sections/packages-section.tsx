@@ -75,19 +75,6 @@ export function PackagesSection() {
               boxShadow: '0 0 60px rgba(227,25,55,0.15)',
             }}
           >
-            {/* BEST 배지 */}
-            <div
-              className="absolute top-6 right-6 px-4 py-1 rounded-full text-xs"
-              style={{
-                background: '#e31937',
-                color: '#fff',
-                fontWeight: 700,
-                letterSpacing: '0.08em',
-              }}
-            >
-              ALL-IN-ONE
-            </div>
-
             <div className="p-8 md:p-12">
               {/* 상단: 티어 + 이름 + 설명 */}
               <div className="mb-8">
@@ -110,13 +97,13 @@ export function PackagesSection() {
 
               {/* 가격 */}
               <div
-                className="flex items-end gap-4 flex-wrap mb-8 pb-8"
+                className="mb-8 pb-8"
                 style={{ borderBottom: '1px solid rgba(255,255,255,0.08)' }}
               >
-                <div>
-                  <div className="text-sm mb-1" style={{ color: '#555' }}>정가</div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="text-xs" style={{ color: '#555' }}>정가</div>
                   <div
-                    className="text-2xl"
+                    className="text-lg"
                     style={{
                       color: '#666',
                       textDecoration: 'line-through',
@@ -126,29 +113,31 @@ export function PackagesSection() {
                     ₩2,500,000
                   </div>
                 </div>
-                <div>
-                  <div className="text-sm mb-1" style={{ color: '#e31937' }}>특가</div>
+                <div className="flex items-end gap-4 flex-wrap">
+                  <div>
+                    <div className="text-sm mb-1" style={{ color: '#e31937' }}>특가</div>
+                    <div
+                      className="text-5xl md:text-6xl"
+                      style={{
+                        fontFamily: "'Outfit', sans-serif",
+                        fontWeight: 900,
+                        color: '#f0f0f0',
+                        letterSpacing: '-0.03em',
+                      }}
+                    >
+                      ₩1,500,000
+                    </div>
+                  </div>
                   <div
-                    className="text-5xl md:text-6xl"
+                    className="px-4 py-2 rounded-full text-sm self-end mb-1"
                     style={{
-                      fontFamily: "'Outfit', sans-serif",
-                      fontWeight: 900,
-                      color: '#f0f0f0',
-                      letterSpacing: '-0.03em',
+                      background: '#e31937',
+                      color: '#fff',
+                      fontWeight: 700,
                     }}
                   >
-                    ₩1,500,000
+                    40% OFF
                   </div>
-                </div>
-                <div
-                  className="px-4 py-2 rounded-full text-sm self-end mb-1"
-                  style={{
-                    background: '#e31937',
-                    color: '#fff',
-                    fontWeight: 700,
-                  }}
-                >
-                  40% OFF
                 </div>
               </div>
 
@@ -207,6 +196,10 @@ export function PackagesSection() {
                   cursor: 'pointer',
                   letterSpacing: '0.05em',
                   border: 'none',
+                }}
+                onClick={() => {
+                  const el = document.getElementById('mbti');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
                 상담 신청하기

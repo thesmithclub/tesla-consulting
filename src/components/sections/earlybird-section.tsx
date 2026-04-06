@@ -7,7 +7,7 @@ import { FireworksV2 as Fireworks } from '../ui/fireworks-v2';
 const benefits = [
   {
     icon: Gift,
-    title: "프리미엄 틴팅 30% 할인",
+    title: "프리미엄 패키지 40% 할인",
     description: "얼리버드 특가로 프리미엄 솔루션을 합리적인 가격에"
   },
   {
@@ -60,7 +60,7 @@ export function EarlybirdSection() {
           </h2>
           
           <p className="text-white mb-8 opacity-90 text-[15px] md:text-[20px]">
-            테슬라 전용 프리미엄 틴팅,<br />30% 할인된 가격으로 지금 만나보세요.
+            테슬라 전용 프리미엄 패키지,<br />40% 할인된 가격으로 지금 만나보세요.
           </p>
 
           {/* Countdown Timer */}
@@ -100,8 +100,8 @@ export function EarlybirdSection() {
               <p className="text-white/80 text-lg group-hover:text-[#E63946]/80 transition-colors duration-300">
                 {index === 0 && (
                   <>
-                    <span className="hidden md:inline">얼리버드 특가로 프리미엄 틴팅을<br />합리적인 가격에 설치 받으세요.</span>
-                    <span className="md:hidden">얼리버드 특가로 프리미엄 솔루션을<br />합리적인 가격에</span>
+                    <span className="hidden md:inline">얼리버드 특가로 프리미엄 패키지를<br />합리적인 가격에 받으세요.</span>
+                    <span className="md:hidden">얼리버드 특가로 프리미엄 패키지를<br />합리적인 가격에</span>
                   </>
                 )}
                 {index === 1 && (
@@ -113,7 +113,7 @@ export function EarlybirdSection() {
                 {index === 2 && (
                   <>
                     신차 검수 및 차량 기능 설명 &<br />
-                    틴팅 필름 설치 고객 한정 스미스패스 증정<br />
+                    패키지 구매 고객 한정 스미스패스 증정<br />
                     <span className="text-sm mt-[10px] block text-[13px] italic mr-[0px] mb-[-5px] ml-[0px]">하이패스 증정은 선착순 50대 한정으로 진행됩니다.</span>
                   </>
                 )}
@@ -132,7 +132,7 @@ export function EarlybirdSection() {
             얼리버드 혜택 신청하고 특별한 테슬라 완성하기 →
           </button>
           <p className="text-white/70 text-sm mt-4 text-center">
-            마감일: 2025.12.31
+            마감일: 한정 제품 소진시까지
           </p>
         </motion.div>
       </div>
