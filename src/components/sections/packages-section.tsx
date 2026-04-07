@@ -3,7 +3,7 @@ import { useInView } from 'react-intersection-observer';
 
 const packageItems = [
   { text: '신차검수 (기본)', sub: 'PDI 전문 인력 검수', highlight: true, bonus: false },
-  { text: 'VEGA 프리미엄 틴팅', sub: '최고급 열차단 필름 (모델3 는 글라스루프 하프시공 기준)', highlight: true, bonus: false },
+  { text: 'VEGA 프리미엄 열차단 필름', sub: '모델3 열선 = 하프시공 기준 / 모델X = 별도 문의', highlight: true, bonus: false },
   { text: '테슬라 전용 루프 열차단 PPF', sub: 'IR 97% 차단 · 유리보호 + 발수코팅', highlight: true, bonus: false },
   { text: 'PPF 8종 패키지', sub: null, tags: ['도어컵', '도어엣지', 'B필러', '등 8종'], highlight: true, bonus: false },
   { text: '유리막 코팅', sub: '광택 보호 및 발수 효과', highlight: false, bonus: false },
