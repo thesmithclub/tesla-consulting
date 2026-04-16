@@ -61,9 +61,14 @@ export function MBTISection() {
   const handleConsult = async () => {
     if (!isComplete) return;
 
+    // Google 광고 전환 이벤트 호출
+    if (typeof (window as any).gtag_report_conversion === 'function') {
+      (window as any).gtag_report_conversion();
+    }
+
     setLoading(true);
     setResult(null); // Reset result
-    
+
     // Mock API Call - Increased delay to 3.5s (1.5s original + 2s requested)
     setTimeout(() => {
       const data = mbtiData[userMBTI] || mbtiData['ESTP']; // Default fallback

@@ -5,7 +5,32 @@
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>live tetris intro page</title>
-      <script type="module" crossorigin src="./assets/index-BYU_k8_m.js"></script>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16826926132"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-16826926132');
+      </script>
+      <!-- MBTI 문의방법 찾기 버튼 전환 스크립트 -->
+      <script>
+        function gtag_report_conversion(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'conversion', {
+            'send_to': 'AW-16826926132/M9uSCIyM9pwcELSI2tc-',
+            'value': 1.0,
+            'currency': 'KRW',
+            'event_callback': callback
+          });
+          return false;
+        }
+      </script>
+      <script type="module" crossorigin src="./assets/index-kr5gZi2i.js"></script>
       <link rel="stylesheet" crossorigin href="./assets/index-BD_tW7nH.css">
     </head>
 
