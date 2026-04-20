@@ -273,10 +273,11 @@ export function MBTISection() {
                             />
                           </div>
 
-                          <button 
+                          <button
                             onClick={() => {
                               if (result.methodType === 'phone') handleContactClick('phone');
                               else if (result.methodType === 'email') handleContactClick('email');
+                              else if (result.methodType === 'direct') window.open('https://te-consulting-form.figma.site', '_blank');
                             }}
                             className="mt-8 px-8 py-3 bg-[#E63946] text-white font-bold rounded-lg hover:bg-[#E63946]/90 transition-colors shadow-lg flex items-center gap-2"
                           >
@@ -298,11 +299,12 @@ export function MBTISection() {
                             else { label = '바로접수'; Icon = Zap; }
 
                             return (
-                              <button 
+                              <button
                                 key={type}
                                 onClick={() => {
                                   if (type === 'phone') handleContactClick('phone');
                                   if (type === 'email') handleContactClick('email');
+                                  if (type === 'direct') window.open('https://te-consulting-form.figma.site', '_blank');
                                 }}
                                 className="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white/60 hover:text-white transition-all text-sm"
                               >
