@@ -220,8 +220,7 @@ export function PackagesSection() {
                   border: 'none',
                 }}
                 onClick={() => {
-                  const el = document.getElementById('mbti');
-                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  window.open('https://thesmithclub.github.io/smith-tecon-page/', '_blank');
                 }}
               >
                 상담 신청하기

@@ -198,6 +198,7 @@ export function SolutionsSection() {
           viewport={{ once: true }}
           className="bg-[#232326] text-[#DEDAD8] px-6 py-4 md:px-10 md:py-5 rounded-full text-base md:text-lg hover:scale-105 transition-transform"
           style={{ fontWeight: 600 }}
+          onClick={() => window.open('https://thesmithclub.github.io/smith-tecon-page/', '_blank')}
         >
           더 다양한 솔루션이 궁금하신가요?<br className="md:hidden" />
           1:1 맞춤 컨설팅 접수 →

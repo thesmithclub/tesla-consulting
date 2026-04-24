@@ -128,7 +128,7 @@ export function EarlybirdSection() {
           animate={inView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <button className="bg-white text-[#E63946] px-12 py-6 rounded-full text-xl hover:scale-105 transition-transform" style={{ fontWeight: 700 }}>
+          <button className="bg-white text-[#E63946] px-12 py-6 rounded-full text-xl hover:scale-105 transition-transform" style={{ fontWeight: 700 }} onClick={() => window.open('https://thesmithclub.github.io/smith-tecon-page/', '_blank')}>
             얼리버드 혜택 신청하고 특별한 테슬라 완성하기 →
           </button>
           <p className="text-white/70 text-sm mt-4 text-center">
