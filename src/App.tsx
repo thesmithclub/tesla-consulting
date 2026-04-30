@@ -167,11 +167,13 @@ const packageOptions = [
 
 const packageRows = [
   { label: '신차검수', values: [true, true] },
-  { label: '프리미엄 틴팅', values: [true, true] },
-  { label: '루프 열차단 PPF', values: [false, true] },
+  { label: '프리미엄 틴팅', sub: 'VEGA IR 95%↑ / TSER 68%↑', values: [true, true] },
+  { label: '루프 열차단 PPF', sub: 'IR 97%↑ · 방오/발수/보호/Self 복원', values: [false, true] },
   { label: 'PPF 구성', values: ['6종', '8종'] },
   { label: '유리막 코팅', values: [true, true] },
+  { label: '유리발수(유막제거)', values: [true, true] },
   { label: '차량 기능 설명', values: [true, true] },
+  { label: '기타 서비스', sub: '시공 보증서, TESLA 기능 모음집, 차량관리 APP 등 제공', values: [true, true] },
 ];
 
 const workedBrands = [
@@ -555,7 +557,10 @@ export default function App() {
           <div className="tc-package-rows">
             {packageRows.map((row) => (
               <div className="tc-package-row" key={row.label}>
-                <span className="tc-package-feature">{row.label}</span>
+                <span className="tc-package-feature">
+                  <span>{row.label}</span>
+                  {'sub' in row && row.sub && <small>{row.sub}</small>}
+                </span>
                 {row.values.map((value, index) => (
                   <span className="tc-package-cell" key={`${row.label}-${index}`}>
                     {value === true ? <Check size={22} aria-label="포함" /> : value === false ? <X size={22} aria-label="제외" /> : value}

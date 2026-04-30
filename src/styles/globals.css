@@ -670,10 +670,20 @@ input[type="number"]::-webkit-outer-spin-button {
 .tc-package-feature {
   padding: 16px 30px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  align-items: flex-start;
   color: var(--tc-dark);
   font-size: 15px;
   font-weight: 600;
+}
+
+.tc-package-feature small {
+  color: var(--tc-pewter);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.35;
 }
 
 .tc-package-cell {
@@ -1077,6 +1087,10 @@ input[type="number"]::-webkit-outer-spin-button {
   .tc-package-feature {
     padding: 12px 10px;
     font-size: 12px;
+  }
+
+  .tc-package-feature small {
+    font-size: 10px;
   }
 
   .tc-package-row {

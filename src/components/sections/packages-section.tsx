@@ -3,13 +3,13 @@ import { useInView } from 'react-intersection-observer';
 
 const packageItems = [
   { text: '신차검수 (기본)', sub: 'PDI 전문 인력 검수', highlight: true, bonus: false },
-  { text: 'VEGA 프리미엄 열차단 필름', sub: '모델3 열선 = 하프시공 기준 / 모델X = 별도 문의', highlight: true, bonus: false },
-  { text: '테슬라 전용 루프 열차단 PPF', sub: 'IR 97% 차단 · 유리보호 + 발수코팅', highlight: true, bonus: false },
+  { text: '프리미엄 틴팅', sub: 'VEGA IR 95%↑ / TSER 68%↑', highlight: true, bonus: false },
+  { text: '루프 열차단 PPF', sub: 'IR 97%↑ · 방오/발수/보호/Self 복원', highlight: true, bonus: false },
   { text: 'PPF 8종 패키지', sub: null, tags: ['도어컵', '도어엣지', 'B필러', '등 8종'], highlight: true, bonus: false },
   { text: '유리막 코팅', sub: '광택 보호 및 발수 효과', highlight: false, bonus: false },
-  { text: '유리발수 (유막 제거)', sub: '시야 확보 및 안전 강화', highlight: false, bonus: false },
+  { text: '유리발수(유막제거)', sub: '시야 확보 및 안전 강화', highlight: false, bonus: false },
   { text: '테슬라 차량 가이드 및 기능 설명', sub: '1:1 맞춤 안내', highlight: false, bonus: false },
-  { text: '테슬라 전용 APP 증정', sub: '전비 관리 및 주행 기록', highlight: false, bonus: true },
+  { text: '기타 서비스', sub: '시공 보증서, TESLA 기능 모음집, 차량관리 APP 등 제공', highlight: false, bonus: true },
 ];
 
 export function PackagesSection() {
