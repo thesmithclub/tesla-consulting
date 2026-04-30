@@ -10,7 +10,7 @@ import {
 } from 'lucide-react';
 import { useEffect, useState, type PointerEvent } from 'react';
 
-const applyUrl = 'https://thesmithclub.github.io/smith-tecon-page/';
+const applyUrl = 'http://pf.kakao.com/_FeWTX';
 const phoneNumber = '010-4227-2010';
 const emailAddress = 'gh.kim@smithclub.net';
 const googleAdsConversionId = 'AW-16826926132/M9uSCIyM9pwcELSI2tc-';

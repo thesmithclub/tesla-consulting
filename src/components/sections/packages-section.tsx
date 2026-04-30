@@ -220,7 +220,7 @@ export function PackagesSection() {
                   border: 'none',
                 }}
                 onClick={() => {
-                  window.open('https://thesmithclub.github.io/smith-tecon-page/', '_blank');
+                  window.open('http://pf.kakao.com/_FeWTX', '_blank');
                 }}
               >
                 상담 신청하기
