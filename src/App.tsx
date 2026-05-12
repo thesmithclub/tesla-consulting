@@ -10,7 +10,8 @@ import {
 } from 'lucide-react';
 import { useEffect, useState, type PointerEvent } from 'react';
 
-const applyUrl = 'http://pf.kakao.com/_FeWTX';
+const applyUrl = 'https://teform.kan-da.com/';
+const kakaoUrl = 'http://pf.kakao.com/_FeWTX';
 const phoneNumber = '010-4227-2010';
 const emailAddress = 'gh.kim@smithclub.net';
 const googleAdsConversionId = 'AW-16826926132/M9uSCIyM9pwcELSI2tc-';
@@ -246,14 +247,23 @@ function Mark({ children }: { children: React.ReactNode }) {
   return <span className="tc-marker">{children}</span>;
 }
 
-function openApply() {
+function reportLeadConversion() {
   window.gtag?.('event', 'conversion', {
     send_to: googleAdsConversionId,
     value: 1.0,
     currency: 'KRW',
   });
   window.fbq?.('track', 'Lead');
+}
+
+function openApply() {
+  reportLeadConversion();
   window.open(applyUrl, '_blank', 'noopener,noreferrer');
+}
+
+function openKakao() {
+  reportLeadConversion();
+  window.open(kakaoUrl, '_blank', 'noopener,noreferrer');
 }
 
 function updateInteractiveBackground(event: PointerEvent<HTMLElement>) {
@@ -336,7 +346,7 @@ export default function App() {
             <div className="tc-consult-methods" aria-label="상담 방식">
               <button type="button" onClick={openApply}>접수 페이지</button>
               <a href={`tel:${phoneNumber}`}>전화상담</a>
-              <button type="button" onClick={openApply}>카카오상담</button>
+              <button type="button" onClick={openKakao}>카카오상담</button>
               <a href={`mailto:${emailAddress}`}>메일상담</a>
             </div>
             <div className="tc-hero-badges" aria-label="서비스 특징">
@@ -446,7 +456,7 @@ export default function App() {
           <p className="tc-eyebrow">Lifestyle diagnosis</p>
           <h2>라이프스타일에 따라 달라지는 <Mark>추천제품들</Mark></h2>
           <div className="tc-lifestyle-actions">
-            <a className="tc-button tc-button-primary" href="#apply">
+            <a className="tc-button tc-button-primary" href={applyUrl} target="_blank" rel="noreferrer" onClick={reportLeadConversion}>
               나에게 맞는 제품 추천 받기 <ArrowRight size={16} />
             </a>
           </div>
@@ -643,7 +653,7 @@ export default function App() {
               <a className="tc-button tc-button-secondary" href={`tel:${phoneNumber}`}>
                 전화상담 <Phone size={15} />
               </a>
-              <button className="tc-button tc-button-secondary" type="button" onClick={openApply}>
+              <button className="tc-button tc-button-secondary" type="button" onClick={openKakao}>
                 카카오상담 <ArrowRight size={15} />
               </button>
               <a className="tc-button tc-button-secondary" href={`mailto:${emailAddress}`}>

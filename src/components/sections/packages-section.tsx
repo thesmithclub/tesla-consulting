@@ -220,7 +220,7 @@ export function PackagesSection() {
                   border: 'none',
                 }}
                 onClick={() => {
-                  window.open('http://pf.kakao.com/_FeWTX', '_blank');
+                  window.open('https://teform.kan-da.com/', '_blank', 'noopener,noreferrer');
                 }}
               >
                 상담 신청하기
